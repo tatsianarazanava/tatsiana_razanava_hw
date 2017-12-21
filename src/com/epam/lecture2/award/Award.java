@@ -1,4 +1,4 @@
-package com.eapm.lecture2.award;
+package com.epam.lecture2.award;
 
 public class Award {
 

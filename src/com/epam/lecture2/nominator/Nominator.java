@@ -1,7 +1,7 @@
-package com.eapm.lecture2.nominator;
+package com.epam.lecture2.nominator;
 
-import com.eapm.lecture2.award.Award;
-import com.eapm.lecture2.nominee.Nominee;
+import com.epam.lecture2.award.Award;
+import com.epam.lecture2.nominee.Nominee;
 
 public class Nominator {
 

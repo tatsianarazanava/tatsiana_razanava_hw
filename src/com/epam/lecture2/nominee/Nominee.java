@@ -1,6 +1,6 @@
-package com.eapm.lecture2.nominee;
+package com.epam.lecture2.nominee;
 
-import com.eapm.lecture2.award.Award;
+import com.epam.lecture2.award.Award;
 
 public class Nominee {
 
