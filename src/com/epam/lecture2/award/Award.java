@@ -4,15 +4,15 @@ public class Award {
 
     public String title;
     private int value;
-    private boolean iscash;
+    private boolean isCash;
 
-    public Award(String t, final int v, boolean c){
+    public Award(String t, final int v, boolean c) {
         this.title = t;
         this.value = v;
-        this.iscash = c;
+        this.isCash = c;
     }
 
-    public int getValue (){
+    public int getValue() {
         return value;
 
     }

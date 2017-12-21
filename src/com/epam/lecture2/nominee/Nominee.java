@@ -5,19 +5,19 @@ import com.epam.lecture2.award.Award;
 public class Nominee {
 
     private String name;
-    private String lastname;
+    private String lastName;
     public int age;
     public boolean isMale;
 
-    public Nominee (String n, String l, int a, boolean m){
+    public Nominee(String n, String l, int a, boolean m) {
         this.name = n;
-        this.lastname = l;
+        this.lastName = l;
         this.age = a;
-        this. isMale = m;
+        this.isMale = m;
     }
 
-    public void receiveAward (Award award){
-        System.out.println("Awa value: " + award.getValue());
+    public void receiveAward(Award award) {
+        System.out.println("Award value: " + award.getValue());
     }
 
     public String getName() {
