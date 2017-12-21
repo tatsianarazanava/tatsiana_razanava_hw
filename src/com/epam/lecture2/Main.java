@@ -17,6 +17,7 @@ public class Main {
 
         Nominator nominator = new Nominator("Olga", "Petrova", 20, false);
 
+
         nominator.nominate(nominee1, award1);
 
     }
