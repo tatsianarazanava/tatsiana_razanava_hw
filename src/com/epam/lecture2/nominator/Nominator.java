@@ -7,14 +7,14 @@ public class Nominator {
 
     private String name;
     private String lastName;
-    public int age;
-    public boolean isMale;
+    private int age;
+    private boolean isMale;
 
-    public Nominator(String n, String l, int a, boolean m) {
-        this.name = n;
-        this.lastName = l;
-        this.age = a;
-        this.isMale = m;
+    public Nominator(String nameParam, String lastNameParam, int ageParam, boolean isMaleParam) {
+        this.name = nameParam;
+        this.lastName = lastNameParam;
+        this.age = ageParam;
+        this.isMale = isMaleParam;
     }
 
     public void nominate(Nominee nominee, Award award) {
