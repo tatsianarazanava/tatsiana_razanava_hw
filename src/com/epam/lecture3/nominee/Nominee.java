@@ -16,8 +16,9 @@ public class Nominee {
     }
 
     public void receiveAward(Award award) {
-        System.out.println("Award value: " + award.getValue()*award.getSoli() + "\n"
-                + "soli = " + award.getSoli() + "\n" + "distinction = "
+        System.out.println("Old award value: " + award.getValue() + "\n"
+                + "New award value with soli: " + award.getValue()*award.getSoli() + "\n"
+                + "soli = " + award.getSoli() + "\n" + "difference = "
                 +(Math.abs(((award.getValue() - (award.getValue() * award.getSoli())) / award.getValue() * 100))) + "%" + "\n");
 
 
