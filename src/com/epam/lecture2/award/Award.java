@@ -10,11 +10,15 @@ public class Award {
         this.title = titleParam;
         this.value = valueParam;
         this.isCash = isCashParam;
-    }
-
-    public int getValue() {
-        return value;
 
     }
+
+    static {
+        System.out.println("Award initialized");
+    }
+
+    public int getValue() { return value; }
+
 
 }
+

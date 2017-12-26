@@ -15,6 +15,11 @@ public class Nominator {
         this.lastName = lastNameParam;
         this.age = ageParam;
         this.isMale = isMaleParam;
+
+    }
+
+    static {
+        System.out.println("Nominator initialized");
     }
 
     public void nominate(Nominee nominee, Award award) {
@@ -22,6 +27,8 @@ public class Nominator {
 
         nominee.receiveAward(award);
     }
+
+    //public String getName() { return name; }
 
 
 }

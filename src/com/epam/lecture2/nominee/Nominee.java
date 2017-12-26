@@ -16,13 +16,15 @@ public class Nominee {
         this.isMale = isMaleParam;
     }
 
+    static {
+        System.out.println("Recipient initialized");
+    }
+
     public void receiveAward(Award award) {
         System.out.println("Award value: " + award.getValue());
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
 
 }
