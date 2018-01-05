@@ -15,14 +15,24 @@ public class Nominee {
 
     }
 
-    public void receiveAward(Award award) {
-        System.out.println("Old award value: " + award.getValue() + "\n"
-                + "New award value with soli: " + award.getValue()*award.getSoli() + "\n"
-                + "soli = " + award.getSoli() + "\n" + "difference = "
-                +(Math.abs(((award.getValue() - (award.getValue() * award.getSoli())) / award.getValue() * 100))) + "%" + "\n");
+        public void receiveAward(Award award) {
+
+            System.out.println ("Award value: " + award.getValue());
+
+        if (award.getSoli() != null) {
+
+            System.out.println("New award value with soli: " + award.getValue() * award.getSoli() + "\n"
+                    + "soli = " + award.getSoli() + "\n" + "difference = "
+                    + (Math.abs(( (award.getValue() - award.getValue() * award.getSoli()) / award.getValue() * 100))) + "%" + "\n");
+        } else {
+            System.out.println ("no soli" + "\n");
+
+
+        }
 
 
     }
+
 
     public String getName() { return name; }
 
