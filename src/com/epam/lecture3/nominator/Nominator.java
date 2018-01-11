@@ -22,7 +22,16 @@ public class Nominator {
         nominee.receiveAward(award);
     }
 
-    //public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getAge() {
+        return age;
+    }
 
 }

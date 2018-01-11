@@ -12,18 +12,27 @@ public class Award {
         this.soli = soliParam;
     }
 
-    public Award(String titleParam, int valueParam){
+    public Award(String titleParam, int valueParam) {
         this.title = titleParam;
         this.value = valueParam;
     }
 
-    public int getValue() { return value; }
+    public int getValue() {
+        return value;
+    }
 
-    public Double getSoli() { return soli; }
+    public Double getSoli() {
+        return soli;
+    }
+
+    public String getTitle() {
+        return title;
+    }
 
     public void setSoli(Double soli) {
         this.soli = soli;
     }
+
 
 }
 
