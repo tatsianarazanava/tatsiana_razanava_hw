@@ -12,6 +12,7 @@ public class Main {
         //awards:
         Award award1 = new Award("Title_1s", 1000, 0.5);
         Award award2 = new Award("Title_2", 2000);
+        Award award21 = new Award("Title_21", 2000);
 
         Award award3 = new Award("Title_3s", 3000, 3.0);
         Award award4 = new Award("Title_4", 4000);
@@ -32,6 +33,7 @@ public class Main {
         //nominations:
         nominator1.nominate(nominee1, award1);
         nominator1.nominate(nominee1, award2);
+        nominator2.nominate(nominee1, award21);
 
         nominator2.nominate(nominee2, award3);
         nominator2.nominate(nominee2, award4);
@@ -44,6 +46,7 @@ public class Main {
 
         double q1 = 0;
         double q2 = 0;
+        double q21 = 0;
         double q3 = 0;
         double q4 = 0;
 
@@ -96,18 +99,24 @@ public class Main {
             System.out.print("\nOne of the recipients is so young: ");
 
             if (nominee1.getAge() <= 20) {
-                System.out.print(nominee1.getName() + " " + nominee1.getLastName() + " is just " + nominee1.getAge() + " years old.");
+                System.out.print(nominee1.getName() + " is only " + nominee1.getAge() + " years old.");
             }
             if (nominee2.getAge() <= 20) {
-                System.out.print(nominee2.getName() + " " + nominee2.getLastName() + " is just " + nominee2.getAge() + " years old.");
+                System.out.print(nominee2.getName() + " is only " + nominee2.getAge() + " years old.");
             }
             if (nominee3.getAge() <= 20) {
-                System.out.print(nominee3.getName() + " " + nominee3.getLastName() + " is just " + nominee3.getAge() + " years old.");
+                System.out.print(nominee3.getName() + " is only " + nominee3.getAge() + " years old.");
             }
         } else {
             System.out.println("All recipients are older than 20 years old.");
         }
 
+        //case 4:
+        if (award2.getValue() == award21.getValue()) {
+            System.out.println("\n\n" + nominee1.getName() + nominee1.getLastName() + " has two awards with the same value.");
+        } else {
+            System.out.println("\n\n" + nominee1.getName() + nominee1.getLastName() + " got some awards with different values.");
+        }
 
     }
 
