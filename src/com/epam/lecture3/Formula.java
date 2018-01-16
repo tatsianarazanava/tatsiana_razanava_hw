@@ -1,7 +1,6 @@
 package com.epam.lecture3;
 
 import java.util.Random;
-
 import com.epam.lecture3.award.Award;
 
 
@@ -33,11 +32,7 @@ public class Formula {
                 + award.getValue() + "):\n" + q + "\nformula calculated" + "\n");
 
         return q;
-
-
     }
-
-
 }
 
 
