@@ -121,68 +121,97 @@ public class Main {
 
         //award:
         Award award75 = new Award("Title_75", 75);
-        //recipient:
-        Nominee nominee75 = new Nominee("Mike", "Kozlov", 75, 5, 400);
         //nominator:
         Nominator nominator75 = new Nominator("Tanya", "Kozlova", 75, 3, 500);
+        //recipient:
+        Nominee nominee75 = new Nominee("Mike", "Kozlov", 75, 5, 400);
 
         //enter task No. you want to run:
-        int task_number = 1;
+        int task_number = 5;
 
         switch (task_number) {
 
             case 1:
                 // task 3.1
-                int quantitySum = 0;
-                while (quantitySum < nominator75.getNominatorAwardQuantityLimit()) {
-                    quantitySum += 1;
+                int quantitySum1 = 0;
+                int amountSum1 = 0;
+                while (quantitySum1 < nominator75.getNominatorAwardQuantityLimit()) {
+                    quantitySum1 += 1;
+                    amountSum1 = amountSum1 + award75.getValue();
                 }
-                System.out.println("\nNominator " + nominator75.getName() + ". Task with 'nominatorAwardQuantityLimit'. The maximum is reached: " + quantitySum + " awards given.");
+                System.out.println("\nNominator " + nominator75.getName() + ". Task with 'nominatorAwardQuantityLimit'. The maximum is reached: " + quantitySum1 + " awards given.");
+                System.out.println("Total amount = " + amountSum1 + " parrots.");
                 break;
 
             case 2:
                 // task 3.2
-                int amountSum = 0;
+                int quantitySum2 = 0;
+                int amountSum2 = 0;
                 do {
-                    int newValue = amountSum + award75.getValue();
+                    int newValue = amountSum2 + award75.getValue();
                     if (newValue > nominator75.getNominatorAwardAmountLimit()) {
                         break;
                     }
-                    amountSum = newValue;
-
+                    amountSum2 = newValue;
+                    quantitySum2 = ++quantitySum2;
                 } while (true);
-                System.out.println("\nNominator " + nominator75.getName() + ". Task with 'nominatorAwardAmountLimit'. The maximum is reached: " + amountSum + " parrots given.");
+
+                System.out.println("\nNominator " + nominator75.getName() + ". Task with 'nominatorAwardAmountLimit'. The maximum is reached: " + amountSum2 + " parrots given.");
+                System.out.println("Total quantity = " + quantitySum2 + " awards.");
                 break;
 
             case 3:
                 // task 3.3
-                quantitySum = 0;
+                int quantitySum3 = 0;
+                int amountSum3 = 0;
                 for (; ; ) {
-                    int newValue = quantitySum + 1;
+                    int newValue = quantitySum3 + 1;
                     if (newValue > nominee75.getNomineeAwardQuantityLimit()) {
                         break;
                     }
-                    quantitySum = newValue;
+                    quantitySum3 = newValue;
+                    amountSum3 = amountSum3 + award75.getValue();
                 }
-                System.out.println("\nRecipient " + nominee75.getName() + ". Task with 'nomineeAwardQuantityLimit'. The maximum is reached: " + quantitySum + " awards received.");
+
+                System.out.println("\nRecipient " + nominee75.getName() + ". Task with 'nomineeAwardQuantityLimit'. The maximum is reached: " + quantitySum3 + " awards received.");
+                System.out.println("Total amount = " + amountSum3 + " parrots.");
                 break;
 
             case 4:
                 // task 3.4
-                amountSum = 0;
-                for (int i = 0; i < 9999; i++) {
+                int quantitySum4 = 0;
+                int amountSum4 = 0;
+                for (int i = 1; i < 9999; i++) {
                     int newValue = award75.getValue();
                     newValue *= i;
+
                     if (newValue > nominee75.getNomineeAwardAmountLimit()) {
                         break;
                     }
-                    amountSum = newValue;
+                    amountSum4 = newValue;
+                    quantitySum4 = ++quantitySum4;
                 }
-                System.out.println("\nRecipient " + nominee75.getName() + ". Task with 'nomineeAwardAmountLimit'. The maximum is reached: " + amountSum + " parrots received.");
+
+                System.out.println("\nRecipient " + nominee75.getName() + ". Task with 'nomineeAwardAmountLimit'. The maximum is reached: " + amountSum4 + " parrots received.");
+                System.out.println("Total quantity = " + quantitySum4 + " awards.");
+                break;
+
+            case 5:
+                // task 5 = 3.3 additional ('for' without break)
+                int quantitySum5 = 0;
+                int amountSum5 = 0;
+                int li = nominee75.getNomineeAwardQuantityLimit();
+                for (quantitySum5 = 0; quantitySum5 < li; quantitySum5++) {
+
+                    amountSum5 = amountSum5 + award75.getValue();
+                }
+
+                System.out.println("\nRecipient " + nominee75.getName() + ". Task with 'nomineeAwardQuantityLimit'. The maximum is reached: " + quantitySum5 + " awards received.");
+                System.out.println("Total amount = " + amountSum5 + " parrots.");
                 break;
 
             default:
-                System.out.println("\nThere is no task with #" + task_number + ". Enter 1, 2, 3 or 4 only.");
+                System.out.println("\nThere is no task with #" + task_number + ". Enter 1, 2, 3, 4 or 5 only.");
                 break;
         }
 
