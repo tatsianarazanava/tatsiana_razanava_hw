@@ -12,7 +12,7 @@ public class Nominator {
     private double nominatorAwardAmountLimit;
 
 
-    //constructor for Nominator (1)
+    //constructor for Nominator (1):
     public Nominator(String nameParam, String lastNameParam, int ageParam) {
         this.name = nameParam;
         this.lastName = lastNameParam;
@@ -21,21 +21,15 @@ public class Nominator {
         nominatorAwardAmountLimit = 0;
     }
 
-    //constructor for Nominator (2)
+    //constructor for Nominator (2):
     public Nominator(String nameParam, String lastNameParam, int ageParam, int awardQuantityLimit, double awardAmountLimit) {
         this(nameParam, lastNameParam, ageParam);
         nominatorAwardQuantityLimit = awardQuantityLimit;
         nominatorAwardAmountLimit = awardAmountLimit;
     }
 
-    //method
-    public void nominate(Nominee nominee, Award award) {
-        System.out.println("Recipient name is " + nominee.getName());
+    //Getters & Setters:
 
-        nominee.receiveAward(award);
-    }
-
-    //Getters & Setters
     public String getName() {
         return name;
     }

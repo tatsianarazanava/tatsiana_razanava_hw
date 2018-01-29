@@ -10,7 +10,7 @@ public class Nominee {
     private int nomineeAwardQuantityLimit;
     private double nomineeAwardAmountLimit;
 
-    //constructor for Recipient (1)
+    //constructor for Recipient (1):
     public Nominee(String nameParam, String lastNameParam, int ageParam) {
         this.name = nameParam;
         this.lastName = lastNameParam;
@@ -19,14 +19,14 @@ public class Nominee {
         this.nomineeAwardAmountLimit = 0;
     }
 
-    //constructor for Recipient (2)
+    //constructor for Recipient (2):
     public Nominee(String nameParam, String lastNameParam, int ageParam, int awardQuantityLimit, double nomineeAwardAmountLimit) {
         this(nameParam, lastNameParam, ageParam);
         this.nomineeAwardQuantityLimit = awardQuantityLimit;
         this.nomineeAwardAmountLimit = nomineeAwardAmountLimit;
     }
 
-    //method
+    //method:
     public void receiveAward(Award award) {
 
         System.out.println("Award value: " + award.getValue());
@@ -41,7 +41,8 @@ public class Nominee {
         }
     }
 
-    //Getters & Setters
+    //Getters & Setters:
+
     public String getName() {
         return name;
     }

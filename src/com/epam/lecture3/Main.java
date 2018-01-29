@@ -1,12 +1,21 @@
 package com.epam.lecture3;
 
 import com.epam.lecture3.award.Award;
+import com.epam.lecture3.nomination_helper.NominationHelper;
 import com.epam.lecture3.nominator.Nominator;
+import com.epam.lecture3.nominator.NominatorNew;
 import com.epam.lecture3.nominee.Nominee;
+import com.epam.lecture3.nominee.NomineeNew;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        lecture6a();
+
+    }
+
+    private static void lecture3() {
         //awards:
         Award award1 = new Award("Title_1s", 1000, 0.5);
         Award award2 = new Award("Title_2", 2000);
@@ -28,16 +37,18 @@ public class Main {
         Nominator nominator2 = new Nominator("Tanya", "Petrova", 22);
         Nominator nominator3 = new Nominator("Marina", "Petrova", 23);
 
+
         //nominations:
-        nominator1.nominate(nominee1, award1);
-        nominator1.nominate(nominee1, award2);
-        nominator2.nominate(nominee1, award21);
-
-        nominator2.nominate(nominee2, award3);
-        nominator2.nominate(nominee2, award4);
-
-        nominator3.nominate(nominee3, award5);
-        nominator3.nominate(nominee3, award6);
+        NominationHelper.Nominate(nominator1, nominee1, award1);
+//        nominator1.nominate(nominee1, award1);
+//        nominator1.nominate(nominee1, award2);
+//        nominator2.nominate(nominee1, award21);
+//
+//        nominator2.nominate(nominee2, award3);
+//        nominator2.nominate(nominee2, award4);
+//
+//        nominator3.nominate(nominee3, award5);
+//        nominator3.nominate(nominee3, award6);
 
         //calculate quantity:
         Formula formula1 = new Formula();
@@ -115,10 +126,9 @@ public class Main {
         } else {
             System.out.println("\n\n" + nominee1.getName() + " " + nominee1.getLastName() + " got some awards with different values.");
         }
+    }
 
-
-        //tasks for lecture4
-
+    private static void lecture4() {
         //award:
         Award award75 = new Award("Title_75", 75);
         //nominator:
@@ -214,6 +224,22 @@ public class Main {
                 System.out.println("\nThere is no task with #" + task_number + ". Enter 1, 2, 3, 4 or 5 only.");
                 break;
         }
+    }
+
+    private static void lecture6a() {
+        System.out.println("Task with constructors - nominator:");
+        NominatorNew nominator = new NominatorNew("Jack", "Green", 40);
+
+        System.out.println("\nTask with constructors - recipient:");
+        NomineeNew nominee = new NomineeNew("Alice", "Brown", 33, 15, 300);
+
+        //task with @Override testMethod:
+        System.out.println("\nTask with @Override:");
+        Person person = new Person("Valentina", "Dubodelova", 55);
+        //NOT overwritten:
+        person.testMethod();
+        //overwritten:
+        nominee.testMethod();
 
     }
 }
