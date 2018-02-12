@@ -5,6 +5,7 @@ public class Person {
     private String name;
     private String lastName;
     private int age;
+
     // protected:
     protected int awardQuantityLimit;
     protected double awardAmountLimit;
@@ -14,16 +15,14 @@ public class Person {
         this.name = nameParam;
         this.lastName = lastNameParam;
         this.age = ageParam;
-        this.awardQuantityLimit = 0;
-        this.awardAmountLimit = 0;
+        this.awardQuantityLimit = 2;
+        this.awardAmountLimit = 1;
         System.out.println("Person constructor 1");
     }
 
     //constructor for Person (2):
     public Person(String nameParam, String lastNameParam, int ageParam, int awardQuantityLimit, double nomineeAwardAmountLimit) {
         this(nameParam, lastNameParam, ageParam);
-        this.awardQuantityLimit = awardQuantityLimit;
-        this.awardAmountLimit = nomineeAwardAmountLimit;
         System.out.println("Person constructor 2");
 
     }
@@ -42,9 +41,15 @@ public class Person {
         return age;
     }
 
-    //task with @Override testMethod:
-    public void testMethod() {
-        System.out.println("testMethod in Person");
+    public int getAwardQuantityLimit() {
+        System.out.println("Person getAwardQuantityLimit: " + awardQuantityLimit);
+        return awardQuantityLimit;
     }
+
+    public double getAwardAmountLimit() {
+        System.out.println("Person getAwardAmountLimit: " + awardAmountLimit);
+        return awardAmountLimit;
+    }
+
 
 }

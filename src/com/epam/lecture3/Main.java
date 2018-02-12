@@ -3,9 +3,7 @@ package com.epam.lecture3;
 import com.epam.lecture3.award.Award;
 import com.epam.lecture3.nomination_helper.NominationHelper;
 import com.epam.lecture3.nominator.Nominator;
-import com.epam.lecture3.nominator.NominatorNew;
 import com.epam.lecture3.nominee.Nominee;
-import com.epam.lecture3.nominee.NomineeNew;
 
 public class Main {
 
@@ -37,18 +35,21 @@ public class Main {
         Nominator nominator2 = new Nominator("Tanya", "Petrova", 22);
         Nominator nominator3 = new Nominator("Marina", "Petrova", 23);
 
-
         //nominations:
-        NominationHelper.Nominate(nominator1, nominee1, award1);
-//        nominator1.nominate(nominee1, award1);
-//        nominator1.nominate(nominee1, award2);
-//        nominator2.nominate(nominee1, award21);
-//
-//        nominator2.nominate(nominee2, award3);
-//        nominator2.nominate(nominee2, award4);
-//
-//        nominator3.nominate(nominee3, award5);
-//        nominator3.nominate(nominee3, award6);
+        NominationHelper.nominate(nominator1, nominee1, award1, NominationHelper.NominateType.Lecture3);
+        NominationHelper.nominate(nominator1, nominee1, award2, NominationHelper.NominateType.Lecture3);
+        NominationHelper.nominate(nominator2, nominee1, award21, NominationHelper.NominateType.Lecture3);
+
+/*     //old nominations:
+       nominator1.nominate(nominee1, award1);
+       nominator1.nominate(nominee1, award2);
+       nominator2.nominate(nominee1, award21);
+       nominator2.nominate(nominee2, award3);
+       nominator2.nominate(nominee2, award4);
+       nominator3.nominate(nominee3, award5);
+       nominator3.nominate(nominee3, award6);
+*/
+
 
         //calculate quantity:
         Formula formula1 = new Formula();
@@ -136,115 +137,28 @@ public class Main {
         //recipient:
         Nominee nominee75 = new Nominee("Mike", "Kozlov", 75, 5, 400);
 
-        //enter task No. you want to run:
-        int task_number = 5;
+        //enter task No. you want to run (Task1 - Task5, or Lecture3):
+        NominationHelper.NominateType taskNum = NominationHelper.NominateType.Task1;
 
-        switch (task_number) {
-
-            case 1:
-                // task 3.1
-                int quantitySum1 = 0;
-                int amountSum1 = 0;
-                while (quantitySum1 < nominator75.getNominatorAwardQuantityLimit()) {
-                    quantitySum1 += 1;
-                    amountSum1 = amountSum1 + award75.getValue();
-                }
-                System.out.println("\nNominator " + nominator75.getName() + ". Task with 'nominatorAwardQuantityLimit'. The maximum is reached: " + quantitySum1 + " awards given.");
-                System.out.println("Total amount = " + amountSum1 + " parrots.");
-                break;
-
-            case 2:
-                // task 3.2
-                int quantitySum2 = 0;
-                int amountSum2 = 0;
-                do {
-                    int newValue = amountSum2 + award75.getValue();
-                    if (newValue > nominator75.getNominatorAwardAmountLimit()) {
-                        break;
-                    }
-                    amountSum2 = newValue;
-                    quantitySum2 = ++quantitySum2;
-                } while (true);
-
-                System.out.println("\nNominator " + nominator75.getName() + ". Task with 'nominatorAwardAmountLimit'. The maximum is reached: " + amountSum2 + " parrots given.");
-                System.out.println("Total quantity = " + quantitySum2 + " awards.");
-                break;
-
-            case 3:
-                // task 3.3
-                int quantitySum3 = 0;
-                int amountSum3 = 0;
-                for (; ; ) {
-                    int newValue = quantitySum3 + 1;
-                    if (newValue > nominee75.getNomineeAwardQuantityLimit()) {
-                        break;
-                    }
-                    quantitySum3 = newValue;
-                    amountSum3 = amountSum3 + award75.getValue();
-                }
-
-                System.out.println("\nRecipient " + nominee75.getName() + ". Task with 'nomineeAwardQuantityLimit'. The maximum is reached: " + quantitySum3 + " awards received.");
-                System.out.println("Total amount = " + amountSum3 + " parrots.");
-                break;
-
-            case 4:
-                // task 3.4
-                int quantitySum4 = 0;
-                int amountSum4 = 0;
-                for (int i = 1; i < 9999; i++) {
-                    int newValue = award75.getValue();
-                    newValue *= i;
-
-                    if (newValue > nominee75.getNomineeAwardAmountLimit()) {
-                        break;
-                    }
-                    amountSum4 = newValue;
-                    quantitySum4 = ++quantitySum4;
-                }
-
-                System.out.println("\nRecipient " + nominee75.getName() + ". Task with 'nomineeAwardAmountLimit'. The maximum is reached: " + amountSum4 + " parrots received.");
-                System.out.println("Total quantity = " + quantitySum4 + " awards.");
-                break;
-
-            case 5:
-                // task 5 = 3.3 additional ('for' without break)
-                int quantitySum5 = 0;
-                int amountSum5 = 0;
-                int li = nominee75.getNomineeAwardQuantityLimit();
-                for (quantitySum5 = 0; quantitySum5 < li; quantitySum5++) {
-
-                    amountSum5 = amountSum5 + award75.getValue();
-                }
-
-                System.out.println("\nRecipient " + nominee75.getName() + ". Task with 'nomineeAwardQuantityLimit'. The maximum is reached: " + quantitySum5 + " awards received.");
-                System.out.println("Total amount = " + amountSum5 + " parrots.");
-                break;
-
-            default:
-                System.out.println("\nThere is no task with #" + task_number + ". Enter 1, 2, 3, 4 or 5 only.");
-                break;
-        }
+        NominationHelper.nominate(nominator75, nominee75, award75, taskNum);
     }
 
     private static void lecture6a() {
         System.out.println("Task with constructors - nominator:");
-        NominatorNew nominator = new NominatorNew("Jack", "Green", 40);
+        Nominator nominator = new Nominator("Jack", "Green", 40);
 
         System.out.println("\nTask with constructors - recipient:");
-        NomineeNew nominee = new NomineeNew("Alice", "Brown", 33, 15, 300);
+        Nominee nominee = new Nominee("Alice", "Brown", 33, 15, 300);
 
-        //task with @Override testMethod:
-        System.out.println("\nTask with @Override:");
         Person person = new Person("Valentina", "Dubodelova", 55);
-        //NOT overwritten:
-        person.testMethod();
-        //overwritten:
-        nominee.testMethod();
+
+        //@Override example:
+        System.out.println("\nGetters override example:");
+        person.getAwardAmountLimit();
+        nominee.getAwardAmountLimit();
+
+        person.getAwardQuantityLimit();
+        nominator.getAwardQuantityLimit();
 
     }
 }
-
-
-
-
-

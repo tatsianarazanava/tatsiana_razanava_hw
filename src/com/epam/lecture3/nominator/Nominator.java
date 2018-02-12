@@ -1,61 +1,47 @@
 package com.epam.lecture3.nominator;
 
-import com.epam.lecture3.award.Award;
-import com.epam.lecture3.nominee.Nominee;
+import com.epam.lecture3.Person;
 
-public class Nominator {
+//new class for Nominator extends class Person:
+public class Nominator extends Person {
 
-    private String name;
-    private String lastName;
-    private int age;
-    private int nominatorAwardQuantityLimit;
-    private double nominatorAwardAmountLimit;
+    private String country;
 
-
-    //constructor for Nominator (1):
+    //constructor for Nominator (1)
     public Nominator(String nameParam, String lastNameParam, int ageParam) {
-        this.name = nameParam;
-        this.lastName = lastNameParam;
-        this.age = ageParam;
-        nominatorAwardQuantityLimit = 0;
-        nominatorAwardAmountLimit = 0;
+        this(nameParam, lastNameParam, ageParam, 0, 0);
+        System.out.println("Nominator constructor 1");
     }
 
-    //constructor for Nominator (2):
+    //constructor for Nominator (2)
     public Nominator(String nameParam, String lastNameParam, int ageParam, int awardQuantityLimit, double awardAmountLimit) {
-        this(nameParam, lastNameParam, ageParam);
-        nominatorAwardQuantityLimit = awardQuantityLimit;
-        nominatorAwardAmountLimit = awardAmountLimit;
+        super(nameParam, lastNameParam, ageParam, awardQuantityLimit, awardAmountLimit);
+        super.awardAmountLimit = awardAmountLimit;
+        super.awardQuantityLimit = awardQuantityLimit;
+        System.out.println("Nominator constructor 2");
     }
 
     //Getters & Setters:
 
-    public String getName() {
-        return name;
+    public String getCountry() {
+        return country;
     }
 
-    public String getLastName() {
-        return lastName;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public int getAge() {
-        return age;
+
+    @Override
+    public int getAwardQuantityLimit() {
+        System.out.println("Nominator getAwardQuantityLimit: " + awardQuantityLimit);
+        return awardQuantityLimit;
     }
 
-    public int getNominatorAwardQuantityLimit() {
-        return nominatorAwardQuantityLimit;
-    }
-
-    public void setNominatorAwardQuantityLimit(int nominatorAwardQuantityLimit) {
-        this.nominatorAwardQuantityLimit = nominatorAwardQuantityLimit;
-    }
-
-    public double getNominatorAwardAmountLimit() {
-        return nominatorAwardAmountLimit;
-    }
-
-    public void setNominatorAwardAmountLimit(double nominatorAwardAmountLimit) {
-        this.nominatorAwardAmountLimit = nominatorAwardAmountLimit;
+    @Override
+    public double getAwardAmountLimit() {
+        System.out.println("Nominator getAwardAmountLimit: " + awardAmountLimit);
+        return awardAmountLimit;
     }
 
 }

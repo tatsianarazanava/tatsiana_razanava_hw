@@ -1,29 +1,23 @@
 package com.epam.lecture3.nominee;
 
+import com.epam.lecture3.Person;
 import com.epam.lecture3.award.Award;
 
-public class Nominee {
-
-    private String name;
-    private String lastName;
-    private int age;
-    private int nomineeAwardQuantityLimit;
-    private double nomineeAwardAmountLimit;
+//new class for Nominee extends class Person:
+public class Nominee extends Person {
 
     //constructor for Recipient (1):
     public Nominee(String nameParam, String lastNameParam, int ageParam) {
-        this.name = nameParam;
-        this.lastName = lastNameParam;
-        this.age = ageParam;
-        this.nomineeAwardQuantityLimit = 0;
-        this.nomineeAwardAmountLimit = 0;
+        this(nameParam, lastNameParam, ageParam, 0, 0);
+        System.out.println("Nominee constructor 1");
     }
 
     //constructor for Recipient (2):
-    public Nominee(String nameParam, String lastNameParam, int ageParam, int awardQuantityLimit, double nomineeAwardAmountLimit) {
-        this(nameParam, lastNameParam, ageParam);
-        this.nomineeAwardQuantityLimit = awardQuantityLimit;
-        this.nomineeAwardAmountLimit = nomineeAwardAmountLimit;
+    public Nominee(String nameParam, String lastNameParam, int ageParam, int awardQuantityLimit, double awardAmountLimit) {
+        super(nameParam, lastNameParam, ageParam, awardQuantityLimit, awardAmountLimit);
+        super.awardAmountLimit = awardAmountLimit;
+        super.awardQuantityLimit = awardQuantityLimit;
+        System.out.println("Nominee constructor 2");
     }
 
     //method:
@@ -41,37 +35,17 @@ public class Nominee {
         }
     }
 
-    //Getters & Setters:
 
-    public String getName() {
-        return name;
+    @Override
+    public int getAwardQuantityLimit() {
+        System.out.println("Recipient getAwardQuantityLimit: " + awardQuantityLimit);
+        return super.awardQuantityLimit;
     }
 
-    public String getLastName() {
-        return lastName;
+    @Override
+    public double getAwardAmountLimit() {
+        System.out.println("Recipient getAwardAmountLimit: " + awardAmountLimit);
+        return super.awardAmountLimit;
     }
-
-    public int getAge() {
-        return age;
-    }
-
-    public int getNomineeAwardQuantityLimit() {
-        return nomineeAwardQuantityLimit;
-    }
-
-    public void setNomineeAwardQuantityLimit(int nomineeAwardQuantityLimit) {
-        this.nomineeAwardQuantityLimit = nomineeAwardQuantityLimit;
-    }
-
-    public double getNomineeAwardAmountLimit() {
-        return nomineeAwardAmountLimit;
-    }
-
-    public void setNomineeAwardAmountLimit(double nomineeAwardAmountLimit) {
-        this.nomineeAwardAmountLimit = nomineeAwardAmountLimit;
-    }
-
 
 }
-
-
