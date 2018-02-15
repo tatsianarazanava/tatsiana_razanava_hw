@@ -15,8 +15,8 @@ public class Person {
         this.name = nameParam;
         this.lastName = lastNameParam;
         this.age = ageParam;
-        this.awardQuantityLimit = 2;
-        this.awardAmountLimit = 1;
+        this.awardQuantityLimit = 1;
+        this.awardAmountLimit = 50;
         System.out.println("Person constructor 1");
     }
 
@@ -42,12 +42,12 @@ public class Person {
     }
 
     public int getAwardQuantityLimit() {
-        System.out.println("Person getAwardQuantityLimit: " + awardQuantityLimit);
+        System.out.println("Person Award Quantity Limit: " + awardQuantityLimit);
         return awardQuantityLimit;
     }
 
     public double getAwardAmountLimit() {
-        System.out.println("Person getAwardAmountLimit: " + awardAmountLimit);
+        System.out.println("Person Award Amount Limit: " + awardAmountLimit);
         return awardAmountLimit;
     }
 

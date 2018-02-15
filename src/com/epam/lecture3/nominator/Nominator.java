@@ -34,13 +34,14 @@ public class Nominator extends Person {
 
     @Override
     public int getAwardQuantityLimit() {
-        System.out.println("Nominator getAwardQuantityLimit: " + awardQuantityLimit);
-        return awardQuantityLimit;
+        int awardQuantityLimitNominator = awardQuantityLimit * 3;
+        System.out.println("Nominator Award Quantity Limit: " + awardQuantityLimitNominator);
+        return awardQuantityLimitNominator;
     }
 
     @Override
     public double getAwardAmountLimit() {
-        System.out.println("Nominator getAwardAmountLimit: " + awardAmountLimit);
+        System.out.println("Nominator Award Amount Limit: " + ((awardAmountLimit * getAwardQuantityLimit() - 1)));
         return awardAmountLimit;
     }
 

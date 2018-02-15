@@ -144,21 +144,34 @@ public class Main {
     }
 
     private static void lecture6a() {
-        System.out.println("Task with constructors - nominator:");
+        System.out.println("--Task with constructors - nominator:");
         Nominator nominator = new Nominator("Jack", "Green", 40);
+        Nominator nominator1 = new Nominator("Marina", "Vasilkova", 25, 10, 100);
 
-        System.out.println("\nTask with constructors - recipient:");
+        System.out.println("\n--Task with constructors - recipient:");
         Nominee nominee = new Nominee("Alice", "Brown", 33, 15, 300);
 
         Person person = new Person("Valentina", "Dubodelova", 55);
 
         //@Override example:
-        System.out.println("\nGetters override example:");
+        System.out.println("\n--Getters override example--");
+        //person
+        person.getAwardQuantityLimit();
         person.getAwardAmountLimit();
+        System.out.println();
+        //nominator1
+        nominator1.getAwardQuantityLimit();
+        nominator1.getAwardAmountLimit();
+        System.out.println();
+        //recipient
+        nominee.getAwardQuantityLimit();
         nominee.getAwardAmountLimit();
 
-        person.getAwardQuantityLimit();
+/*        //nominator0
+        System.out.println();
         nominator.getAwardQuantityLimit();
+        nominator.getAwardAmountLimit();
+        System.out.println();*/
 
     }
 }

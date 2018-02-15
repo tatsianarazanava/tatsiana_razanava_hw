@@ -38,13 +38,13 @@ public class Nominee extends Person {
 
     @Override
     public int getAwardQuantityLimit() {
-        System.out.println("Recipient getAwardQuantityLimit: " + awardQuantityLimit);
+        System.out.println("Recipient Award Quantity Limit: " + awardQuantityLimit);
         return super.awardQuantityLimit;
     }
 
     @Override
     public double getAwardAmountLimit() {
-        System.out.println("Recipient getAwardAmountLimit: " + awardAmountLimit);
+        System.out.println("Recipient Award Amount Limit: " + awardAmountLimit);
         return super.awardAmountLimit;
     }
 
