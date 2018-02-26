@@ -31,6 +31,10 @@ public class Nominator extends Person {
         this.country = country;
     }
 
+    @Override
+    public boolean isLimitReached(int currentValue) {
+        return currentValue >= awardQuantityLimit;
+    }
 
     @Override
     public int getAwardQuantityLimit() {
@@ -41,8 +45,9 @@ public class Nominator extends Person {
 
     @Override
     public double getAwardAmountLimit() {
-        System.out.println("Nominator Award Amount Limit: " + ((awardAmountLimit * getAwardQuantityLimit() - 1)));
-        return awardAmountLimit;
+        double awardAmountLimitNominator = awardAmountLimit * awardQuantityLimit - 1;
+        System.out.println("Nominator Award Amount Limit: " + awardAmountLimitNominator);
+        return awardAmountLimitNominator;
     }
 
 }

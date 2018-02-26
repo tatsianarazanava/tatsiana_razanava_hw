@@ -5,11 +5,16 @@ import com.epam.lecture3.nomination_helper.NominationHelper;
 import com.epam.lecture3.nominator.Nominator;
 import com.epam.lecture3.nominee.Nominee;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeSet;
+import java.util.Set;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        lecture6a();
+        lecture9();
 
     }
 
@@ -39,16 +44,6 @@ public class Main {
         NominationHelper.nominate(nominator1, nominee1, award1, NominationHelper.NominateType.Lecture3);
         NominationHelper.nominate(nominator1, nominee1, award2, NominationHelper.NominateType.Lecture3);
         NominationHelper.nominate(nominator2, nominee1, award21, NominationHelper.NominateType.Lecture3);
-
-/*     //old nominations:
-       nominator1.nominate(nominee1, award1);
-       nominator1.nominate(nominee1, award2);
-       nominator2.nominate(nominee1, award21);
-       nominator2.nominate(nominee2, award3);
-       nominator2.nominate(nominee2, award4);
-       nominator3.nominate(nominee3, award5);
-       nominator3.nominate(nominee3, award6);
-*/
 
 
         //calculate quantity:
@@ -145,20 +140,22 @@ public class Main {
 
     private static void lecture6a() {
         System.out.println("--Task with constructors - nominator:");
-        Nominator nominator = new Nominator("Jack", "Green", 40);
-        Nominator nominator1 = new Nominator("Marina", "Vasilkova", 25, 10, 100);
+        Person nominator = new Nominator("Jack", "Green", 40);
+        Person nominator1 = new Nominator("Marina", "Vasilkova", 25, 10, 100);
 
         System.out.println("\n--Task with constructors - recipient:");
-        Nominee nominee = new Nominee("Alice", "Brown", 33, 15, 300);
+        Person nominee = new Nominee("Alice", "Brown", 33, 15, 300);
 
-        Person person = new Person("Valentina", "Dubodelova", 55);
+        //obsolete
+        // Person person = new Person("Valentina", "Dubodelova", 55);
 
         //@Override example:
         System.out.println("\n--Getters override example--");
         //person
-        person.getAwardQuantityLimit();
-        person.getAwardAmountLimit();
-        System.out.println();
+//        person.getAwardQuantityLimit();
+//        person.getAwardAmountLimit();
+//        System.out.println();
+
         //nominator1
         nominator1.getAwardQuantityLimit();
         nominator1.getAwardAmountLimit();
@@ -167,11 +164,32 @@ public class Main {
         nominee.getAwardQuantityLimit();
         nominee.getAwardAmountLimit();
 
-/*        //nominator0
+    }
+
+    private static void lecture9() {
+        List<Award> awards = new ArrayList<>();
+
+        for (int i = 0; i < 15; i++) {
+            int type_id = i % 3;
+            awards.add(new Award("award_title_" + i, 100 + i, 1.0, "award_type_" + type_id, i));
+        }
+
+
+        // print awards with award_type_0:
+        NominationHelper.printAwards(awards, "award_type_0");
         System.out.println();
-        nominator.getAwardQuantityLimit();
-        nominator.getAwardAmountLimit();
-        System.out.println();*/
+
+
+        // print awa types list
+        Set<String> awaTypes = new TreeSet<>();
+        for (Award award : awards) {
+            awaTypes.add(award.getType());
+        }
+
+        System.out.println("List of award's types:");
+        for (String type : awaTypes) {
+            System.out.println("\t" + type);
+        }
 
     }
 }

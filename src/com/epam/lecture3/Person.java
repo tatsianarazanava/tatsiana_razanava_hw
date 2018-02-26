@@ -1,6 +1,6 @@
 package com.epam.lecture3;
 
-public class Person {
+public abstract class Person implements OperationsWithLimit {
     //private:
     private String name;
     private String lastName;
@@ -24,7 +24,6 @@ public class Person {
     public Person(String nameParam, String lastNameParam, int ageParam, int awardQuantityLimit, double nomineeAwardAmountLimit) {
         this(nameParam, lastNameParam, ageParam);
         System.out.println("Person constructor 2");
-
     }
 
     //Getters & Setters:
@@ -51,5 +50,11 @@ public class Person {
         return awardAmountLimit;
     }
 
+    @Override
+    public boolean isLimitReached(int currentValue, int limit) {
+        return currentValue >= limit;
+    }
 
+    // Overload
+    public abstract boolean isLimitReached(int currentValue);
 }

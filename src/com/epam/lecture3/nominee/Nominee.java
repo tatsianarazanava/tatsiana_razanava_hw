@@ -20,7 +20,7 @@ public class Nominee extends Person {
         System.out.println("Nominee constructor 2");
     }
 
-    //method:
+    //method to receive award:
     public void receiveAward(Award award) {
 
         System.out.println("Award value: " + award.getValue());
@@ -35,6 +35,12 @@ public class Nominee extends Person {
         }
     }
 
+    //Getters & Setters:
+
+    @Override
+    public boolean isLimitReached(int currentValue) {
+        return currentValue >= awardQuantityLimit;
+    }
 
     @Override
     public int getAwardQuantityLimit() {
